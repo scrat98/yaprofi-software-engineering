@@ -15,7 +15,7 @@ def squareRegression(x, a, b, c):
   y = a*x*x + b*x + c
   return y
 
-firstPart = optimize.curve_fit(squareRegression, xdata = firstPartData, ydata = y)[0]
-secondPart = optimize.curve_fit(squareRegression, xdata = secondPartData, ydata = y)[0]
-thirdPart = optimize.curve_fit(linearRegression, xdata = thirdPartData, ydata = y)[0]
+firstPart = curve_fit(squareRegression, xdata = firstPartData, ydata = y)[0]
+secondPart = curve_fit(squareRegression, xdata = secondPartData, ydata = y)[0]
+thirdPart = curve_fit(linearRegression, xdata = thirdPartData, ydata = y)[0]
 print(firstPart, secondPart, thirdPart)
