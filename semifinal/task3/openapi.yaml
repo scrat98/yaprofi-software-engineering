@@ -1,0 +1,44 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://127.0.0.1:8080/
+    description: Generated server url
+paths:
+  /data-providers:
+    post:
+      tags:
+        - data-provider-info-conroller
+      operationId: add
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataProviderInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    DataProviderInfo:
+      required:
+        - jdbcUrl
+        - name
+        - queryToRetrieve
+        - syncIntervalSeconds
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        jdbcUrl:
+          type: string
+        queryToRetrieve:
+          type: string
+        syncIntervalSeconds:
+          type: integer
+          format: int64
